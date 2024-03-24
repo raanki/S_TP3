@@ -4,14 +4,17 @@
 #define NOMBRE_DE_TOURS 5
 
 int v_globale = 100;
+pthread_mutex_t verrou = PTHREAD_MUTEX_INITIALIZER;
 
 void* fonction_fils(void* arg)
 {
     int i;
     for (i = 0; i < NOMBRE_DE_TOURS; i++)
     {
+        pthread_mutex_lock(&verrou);
         v_globale += 10;
         printf("[fils] Thread=%ld, v_globale=%d\n", pthread_self(), v_globale);
+        pthread_mutex_unlock(&verrou);
     }
     return NULL;
 }
@@ -21,8 +24,10 @@ void* fonction_pere(void* arg)
     int i;
     for (i = 0; i < NOMBRE_DE_TOURS; i++)
     {
+        pthread_mutex_lock(&verrou);
         v_globale *= 2;
         printf("[pere] Thread=%ld, v_globale=%d\n", pthread_self(), v_globale);
+        pthread_mutex_unlock(&verrou);
     }
     return NULL;
 }
@@ -40,5 +45,8 @@ int main()
     pthread_join(thread2, NULL);
 
     printf("** Fin du processus, v_globale=%d **\n", v_globale);
+    
+    pthread_mutex_destroy(&verrou);
     return 0;
 }
+
