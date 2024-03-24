@@ -1,0 +1,10 @@
+2.1) Le printf marche avec un systeme de buffer. Le "\n" est un caractère qui permet 
+de forcer la libération de ce buffer. Sans de "\n" le printf s'affiche automatique en fin de programme
+ou bien quand il atteint sa limite. On peut forcer l'affichage grâce à la fonction : sfflush(); sur le fd
+de la sortie standard soit : fflush(stdout);
+
+Même avec des '\n', il est possible que certains messages s'affichent après que le prompt du shell soit devenu à nouveau disponible.
+Cela est dû au fait que le shell peut récupérer le contrôle et afficher le prompt avant que tous les processus fils 
+n'aient terminé leur exécution et affiché leurs messages.
+C'est particulièrement vrai si les processus fils effectuent des opérations d'E/S ou se terminent peu après 
+que le processus parent se termine.

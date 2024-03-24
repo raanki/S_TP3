@@ -1,0 +1,8 @@
+
+L'ajout de temps d'attente (sleep ou usleep) dans les boucles de modification de la variable globale v_globale 
+dans les processus fils et père ne modifie pas le comportement fondamenta entre 
+les processus créés par fork().
+
+Chaque processus, après fork(), dispose de sa propre copie indépendante des données, 
+y compris des variables globales. Cela signifie que même si on ajoutez des délais, les modifications apportées à
+v_globale dans le processus fils sont complètement isolées de celles dans le processus père, et vice versa.

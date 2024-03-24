@@ -1,0 +1,2 @@
+L'execution d'une commande dans un processus fils permet de mettre fin au processus si la commande s'execute correctement.
+Ainsi le message "fin de processus" ne s'affiche pas.

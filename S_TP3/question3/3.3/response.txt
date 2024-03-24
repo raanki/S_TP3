@@ -1,0 +1,4 @@
+Pour gérer plusieurs threads écrivains et lecteurs, il faut principalement s'assurer que
+l'accès aux variables partagées (indexEcriture, indexLecture, et tampon) reste correctement synchronisé pour
+éviter les conditions de course (dataRace).
+

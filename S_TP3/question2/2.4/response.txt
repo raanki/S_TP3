@@ -1,0 +1,10 @@
+Pour garantir que les temps d'attente soient différents entre les processus, il est important d'initialiser
+le générateur de nombres aléatoires avec des graines différentes. 
+ 
+ Dans l'exemple ci-dessus, j'ai utilisé srand(seed + getpid()); pour initialiser la graine. 
+ getpid() renvoie un identifiant unique pour chaque processus, assurant ainsi que la graine utilisée pour srand() 
+ sera différente entre le père et le fils.
+
+ Les temps d'attente aléatoires peuvent influencer la durée totale d'exécution du programme ainsi que l'ordonnancement 
+ des opérations entre le processus père et le processus fils. 
+ 

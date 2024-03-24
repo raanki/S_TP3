@@ -1,0 +1,15 @@
+
+La valeur renvoyée par la primitive fork() dépend du contexte dans lequel elle est exécutée :
+
+Dans le processus père, fork() renvoie le PID (Process ID) du processus fils créé. 
+Cette valeur est supérieure à 0 et permet au processus père de contrôler ou de surveiller le processus fils.
+
+Dans le processus fils, fork() renvoie 0. 
+Cela permet au code exécuté dans le processus fils de savoir qu'il est le processus fils.
+
+En cas d'échec de la création du processus fils, fork()
+renvoie -1 au processus père, et aucune création de processus fils n'a lieu.
+
+
+
+Il faut executer la commande 'echo $$' ou bien 'ps -f'.
