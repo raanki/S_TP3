@@ -25,8 +25,8 @@ int main(int argc, char **argv)
         usleep(sleepTime);
         printf("[fils] Je suis reveille !\n");
         printf("[fils] Je fais la commande !\n");
-        execl("echo", "echo", "Bonjour", prenom, (char *)NULL);
-        perror("execlp a échoué");
+        execl("/bin/echo", "echo", "Bonjour", prenom, (char *)NULL);
+        perror("execl a échoué");
         _exit(1);
     }
     else

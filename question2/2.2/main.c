@@ -16,6 +16,7 @@ int main()
     else if (pid == 0)
     {
         printf("Fils : PID=%d, PPID=%d\n", getpid(), getppid());
+        sleep(20);
     }
     else
     {

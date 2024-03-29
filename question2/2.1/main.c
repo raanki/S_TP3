@@ -46,7 +46,7 @@ int main()
             fflush(stdout);
         }
 
-        wait(NULL); // Attendre que le fils termine
+        wait(NULL);
     }
 
     printf("** Fin du processus <%d>, v_globale=%d **", getpid(), v_globale);

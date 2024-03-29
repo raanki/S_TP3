@@ -12,7 +12,7 @@ int main()
     int pid;
     int i;
 
-    printf("Valeur initiale de v_globale : %d\n", v_globale);
+    printf("Valeur initiale de v_globale : %d\n\n", v_globale);
 
     pid = fork();
     if (pid == -1)
@@ -27,7 +27,7 @@ int main()
         for (i = 0; i < NOMBRE_DE_TOURS; i++)
         {
             v_globale += 10;
-            printf("[fils] PID=%d, PPID=%d, v_globale=%d\n", getpid(), getppid(), v_globale);
+            printf("\n[fils] PID=%d, PPID=%d, v_globale=%d\n", getpid(), getppid(), v_globale);
             printf("[fils] <%d> : i=%d, v_globale=%d\n", getpid(), i, v_globale);
         }
     }
@@ -37,13 +37,13 @@ int main()
         for (i = 0; i < NOMBRE_DE_TOURS; i++)
         {
             v_globale *= 2;
-            printf("[pere] PID=%d, PPID=%d, v_globale=%d\n", getpid(), getppid(), v_globale);
+            printf("\n[pere] PID=%d, PPID=%d, v_globale=%d\n", getpid(), getppid(), v_globale);
             printf("[pere] <%d> : i=%d, v_globale=%d\n", getpid(), i, v_globale);
         }
 
         wait(NULL);
     }
 
-    printf("** Fin du processus <%d>, v_globale=%d **\n", getpid(), v_globale);
+    printf("\n\n** Fin du processus <%d>, v_globale=%d **\n", getpid(), v_globale);
     return 0;
 }

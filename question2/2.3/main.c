@@ -41,6 +41,7 @@ int main()
             v_globale *= 2;
             printf("[pere] PID=%d, PPID=%d, v_globale=%d\n", getpid(), getppid(), v_globale);
             printf("[pere] <%d> : i=%d, v_globale=%d\n", getpid(), i, v_globale);
+            usleep(750);
             //sleep(1);
         }
 

@@ -35,8 +35,8 @@ int main(int argc, char **argv)
             usleep(sleepTime);
             printf("[fils %d] Je suis reveille !\n", i+1);
             printf("[fils %d] Je fais la commande !\n", i+1);
-            execlp("echo", "echo", "Bonjour", prenom, (char *)NULL);
-            perror("execlp a échoué");
+            execl("/bin/echo", "echo", "Bonjour", prenom, (char *)NULL);
+            perror("execl a échoué");
             _exit(1);
         }
     }
@@ -47,6 +47,7 @@ int main(int argc, char **argv)
         wait(&status);
     }
 
+    printf("\n\n[pere] PID=%d, Tous mes fils on finis.\n", getpid());
     printf("** Fin du processus <%d> **\n", getpid());
     return 0;
 }

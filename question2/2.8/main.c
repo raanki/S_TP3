@@ -25,11 +25,9 @@ int main(int argc, char **argv)
         usleep(sleepTime);
         printf("[fils] Je suis reveille !\n");
         printf("[fils] Je fais la commande !\n");
-        //prog_fils
-        printf("[fils] PID <%d> PPID <%d>\n", getpid(), getppid());
-        printf("[fils] commande de lancement : %s\n", argv[0]);
-        printf("[fils] Bonjour %s\n", argv[1]);
-
+        execl("./prog_fils", "./prog_fils", prenom, (char *)NULL);
+        printf("error : commande non trouve\n");
+        _exit(1);
     }
     else
     {
